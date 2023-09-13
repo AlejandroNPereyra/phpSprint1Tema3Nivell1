@@ -12,19 +12,15 @@ $string2 = $_POST['string2'];
 $string3 = $_POST['string3'];
 $character = $_POST['character'];
 
-/*$wordsArray = array();
+$wordsArray = array();
 
 array_push($wordsArray, $string1);
 array_push($wordsArray, $string2);
 array_push($wordsArray, $string3);
 
-var_dump($wordsArray);*/
+function stringCheck ($character, $wordsArray) {
 
-function stringCheck ($string1, $string2, $string3, $character) {
-
-    if (strpos($string1, $character) !== false &&
-    strpos($string2, $character) !== false &&
-    strpos($string3, $character) !== false) {
+    if (in_array($character, $wordsArray)) {
 
         return true;
 
@@ -36,19 +32,16 @@ function stringCheck ($string1, $string2, $string3, $character) {
 
 }
 
-var_dump(stringCheck($string1, $string2, $string3, $character));
+$verify = stringCheck ($character, $wordsArray);
 
-/*foreach ($wordsArray as $strings) {
+if ($verify === true) {
 
-    if (strpos($strings, $character) !== false) {
+    echo "The character ".$character.  " exists in the array of words!";
 
-        echo "The character '$character' exists in the string '$strings'.<br>";
+} else {
 
-    } else {
+    echo "The character " .$character. " doesn't exists in the array of words!";
 
-        echo "The character '$character' doesn't exist in the string '$strings'.<br>";
-    }
-
-}*/
+}
 
 ?>
