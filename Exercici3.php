@@ -20,14 +20,15 @@ array_push($wordsArray, $string3);
 
 function stringCheck ($character, $wordsArray) {
 
-    if (in_array($character, $wordsArray)) {
+    foreach ($wordsArray as $word) {
 
-        return true;
+        if (strpos($word, $character) != false) {
 
-    } else {
+            return true;
+
+        }
 
         return false;
-
     }
 
 }
@@ -40,7 +41,7 @@ if ($verify === true) {
 
 } else {
 
-    echo "The character " .$character. " doesn't exists in the array of words!";
+    echo "The character " .$character. " isn't contained in all the words or doesn't exist at all in the array!";
 
 }
 
